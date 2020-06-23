@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import HSTS_Entities.HstsUser;
 import HSTS_Entities.Message;
@@ -47,6 +48,7 @@ public class StudentAboutController implements Initializable {
 
     @Override
 	public void initialize(URL location, ResourceBundle resources) {
+    	EventBus.getDefault().register(this);
 	}
     
     @FXML
@@ -61,6 +63,8 @@ public class StudentAboutController implements Initializable {
 				Scene scene = new Scene(root);
 				stage.setScene(scene);
 				stage.show();
+				EventBus.getDefault().post(user);
+				EventBus.getDefault().unregister(this);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -76,6 +80,8 @@ public class StudentAboutController implements Initializable {
 				Scene scene = new Scene(root);
 				stage.setScene(scene);
 				stage.show();
+				EventBus.getDefault().post(user);
+				EventBus.getDefault().unregister(this);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -91,6 +97,8 @@ public class StudentAboutController implements Initializable {
 				Scene scene = new Scene(root);
 				stage.setScene(scene);
 				stage.show();
+				EventBus.getDefault().post(user);
+				EventBus.getDefault().unregister(this);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -106,6 +114,8 @@ public class StudentAboutController implements Initializable {
 				Scene scene = new Scene(root);
 				stage.setScene(scene);
 				stage.show();
+				EventBus.getDefault().post(user);
+				EventBus.getDefault().unregister(this);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -120,6 +130,8 @@ public class StudentAboutController implements Initializable {
 				Scene scene = new Scene(root);
 				stage.setScene(scene);
 				stage.show();
+				EventBus.getDefault().post(user);
+				EventBus.getDefault().unregister(this);
 				Message msg = new Message();
 				msg.setAction("user log out");
 				msg.setUser(this.user);
@@ -135,5 +147,10 @@ public class StudentAboutController implements Initializable {
 				e.printStackTrace();
 			}
 		}
+	}
+    
+    @Subscribe
+	public void onUserEvent(HstsUser user) {
+		this.user = user;
 	}
 }
