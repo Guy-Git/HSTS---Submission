@@ -390,8 +390,10 @@ public class StartExamExecutionController implements Initializable {
 				alert.show();
 			}
 
-			else {
-				checkAndSend();
+			else 
+			{
+				if(msg.getAction().equals("code not used"))
+					checkAndSend();
 			}
 		});
 	}
