@@ -279,7 +279,9 @@ public class StudentShowExamsController implements Initializable {
 					note1.setStyle("-fx-fill: white");
 					Text note2 = new Text(exams.get(i).getNotes());
 					note2.setFont(Font.font("Century Gothic", 14));
+					note2.setWrappingWidth(200);
 					note2.setStyle("-fx-fill: white");
+					
 					editNotesArea.getChildren().addAll(note1, note2);
 
 					if (note2.getText() != "")
@@ -532,7 +534,7 @@ public class StudentShowExamsController implements Initializable {
 			this.user = user;
 			Message msg = new Message();
 			msg.setAction("Pull student's exams");
-			msg.setUser(user);
+			msg.setUser(this.user);
 			try {
 				AppsClient.getClient().sendToServer(msg);
 			} catch (IOException e) {

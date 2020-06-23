@@ -314,6 +314,7 @@ public class ExamsReviewController implements Initializable {
 					Text instructionsArea = new Text(exams.get(i).getInstructions());
 					instructionsArea.setFont(Font.font("Century Gothic", 14));
 					instructionsArea.setFill(Color.WHITE);
+					instructionsArea.setWrappingWidth(300);
 					editInstructionsArea.getChildren().addAll(instructions, instructionsArea);
 					instructionsHBox.getChildren().add(editInstructionsArea);
 					HBox notesHBox = new HBox(10);
@@ -326,6 +327,7 @@ public class ExamsReviewController implements Initializable {
 					Text editNotesArea = new Text(exams.get(i).getNotes());
 					editNotesArea.setFont(Font.font("Century Gothic", 14));
 					editNotesArea.setFill(Color.WHITE);
+					editNotesArea.setWrappingWidth(280);
 					notes.getChildren().addAll(notes1, editNotesArea);
 
 					if (editNotesArea.getText() != "")
