@@ -170,6 +170,7 @@ public class AppsServer extends AbstractServer {
 
 		if (((Message) msg).getAction().equals("Enter code")
 				|| ((Message) msg).getAction().equals("Pull exam by examCode")) {
+			
 			serverMsg.setExam(examExecController.getExamForExec(((Message) msg)));
 			serverMsg.setExecutedExam(executedExamController.getExecutedExam(((Message) msg)));
 
@@ -180,7 +181,6 @@ public class AppsServer extends AbstractServer {
 					HstsUser teacher = new HstsUser();
 					teacher.setUserId(serverMsg.getExecutedExam().getAssignedBy());
 					serverMsg.setUser(userController.getSubsAndCourses(teacher));
-					System.out.println(serverMsg.getUser().getFullName());
 				}
 				serverMsg.setAction("Exam for exec");
 

@@ -262,9 +262,10 @@ public class ExecutedExamController {
 					.where(builder.equal(rootEntry.get("examCode"), msg.getExamForExec().getExamCode()));
 			TypedQuery<ExecutedExam> query = session.createQuery(criteriaQuery);
 			try {
-				executedExam = (ExecutedExam) query.getResultList().get(0);
+				executedExam = (ExecutedExam) query.getSingleResult();
 			} catch (NoResultException nre) {
 				System.out.println("Exam code not found!");
+				executedExam = null;
 			}
 		} catch (Exception exception) {
 			if (session != null) {
