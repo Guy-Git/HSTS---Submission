@@ -596,7 +596,7 @@ public class EditExamController implements Initializable {
 		EventBus.getDefault().clearCaches();
 
 		Platform.runLater(() -> {
-			if (msg.getAction() == "Show Exams and Questions") {
+			if (msg.getAction().equals("Show Exams and Questions")) {
 				if (exams.size() != 0)
 					exams_box.setVisible(true);
 				else

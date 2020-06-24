@@ -322,17 +322,17 @@ public class TeacherExamExecutionController implements Initializable {
 				enter_reasons_text.setStyle("-fx-border-color: RED; -fx-border-radius: 10; -fx-background-color: transparent;");
 				badInput = true;
 			} else {
-				enter_reasons_text.setStyle("-fx-background-color: #1E242E; -fx-text-inner-color: white; -fx-background-radius: 10;");
+				//enter_reasons_text.setStyle("-fx-background-color: #1E242E; -fx-text-inner-color: white; -fx-background-radius: 10;");
 			}
 
 			if (enter_time_text.getText().isEmpty() || !enter_time_text.getText().matches("[0-9]+")) {
 				enter_time_text.setStyle("-fx-border-color: RED; -fx-border-radius: 10; -fx-background-color: transparent;");
 				badInput = true;
 			} else {
-				enter_time_text.setStyle("-fx-background-color: #1E242E; -fx-text-inner-color: white; -fx-background-radius: 10;");
+				//enter_time_text.setStyle("-fx-background-color: #1E242E; -fx-text-inner-color: white; -fx-background-radius: 10;");
 			}
 		}
-
+		
 		catch (ClassCastException cce) {
 		}
 
@@ -351,6 +351,13 @@ public class TeacherExamExecutionController implements Initializable {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setHeaderText("Time extension request sent");
+			alert.setTitle("");
+			alert.show();
+			enter_reasons_text.clear();
+			enter_time_text.clear();
 		}
 
 		else {

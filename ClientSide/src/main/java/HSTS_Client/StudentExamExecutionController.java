@@ -582,9 +582,9 @@ public class StudentExamExecutionController implements Initializable {
 
 	@FXML
 	void startExam(ActionEvent event) {
-
+		
 		if (enterIdForExam.getText().equals(user.getUserId())) {
-
+			
 			for_multi_line.setVisible(false);
 			enterIdForExam.setVisible(false);
 			start_exam_btn.setVisible(false);

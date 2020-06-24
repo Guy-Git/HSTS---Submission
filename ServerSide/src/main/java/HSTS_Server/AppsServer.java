@@ -548,7 +548,7 @@ public class AppsServer extends AbstractServer {
 			answers9.add("Java");
 			answers9.add("C++");
 			answers9.add("C#");
-			Question question9 = new Question("In which of the following the user requires to free its allocated data?",
+			Question question9 = new Question("In which of the following is the user required to free allocated data?",
 					answers9, 3, "Introduction to CS", "CS");
 			questionController.addQuestion(question9);
 			session.flush();
