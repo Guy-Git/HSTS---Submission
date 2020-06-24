@@ -181,8 +181,6 @@ public class StudentExamExecutionController implements Initializable {
 
 	private String teacherName = null;
 	
-	boolean firstTimeInPage;
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		EventBus.getDefault().register(this);
@@ -308,12 +306,7 @@ public class StudentExamExecutionController implements Initializable {
 	@Subscribe
 	public void setExamToPage(Message msg) {
 
-		if(firstTimeInPage)
-		{
-			firstTimeInPage = false;
-		}
-		else {
-			
+		if(msg.getAction().equals("Exam for exec")||msg.getAction().equals("Exam code invalid")||msg.getAction().equals("Time extension result"))
 		Platform.runLater(() -> {
 
 			boolean submitted = false;
@@ -326,6 +319,7 @@ public class StudentExamExecutionController implements Initializable {
 					alert.show();
 				}
 				beforeTimeExtension = false;
+				if(msg.getExecutedExam()!=null) {
 				for (int i = 0; i < msg.getExecutedExam().getStudentsExecutedExams().size(); i++) {
 					if (msg.getExecutedExam().getStudentsExecutedExams().get(i).getUserId().equals(user.getUserId())) {
 						if (msg.getExecutedExam().getStudentsExecutedExams().get(i).isSubmitted()) {
@@ -338,6 +332,7 @@ public class StudentExamExecutionController implements Initializable {
 						}
 					}
 				}
+			}
 			}
 			if (submitted == false) {
 				if (checkedExtentions == true) {
@@ -412,7 +407,6 @@ public class StudentExamExecutionController implements Initializable {
 			}
 		});
 		}
-	}
 
 	@FXML
 	void onDownlodeEvent(ActionEvent event) {
@@ -949,7 +943,7 @@ public class StudentExamExecutionController implements Initializable {
 	public void onUserEvent(HstsUser user) {
 		Platform.runLater(() -> {
 			
-			firstTimeInPage = true;
+			System.out.println("on user event exam!");
 			this.user = user;
 			ArrayList<String> subjects = new ArrayList<String>();
 			ArrayList<String> courses = new ArrayList<String>();

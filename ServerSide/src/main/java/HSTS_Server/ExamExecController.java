@@ -50,9 +50,8 @@ public class ExamExecController {
 
 	public Exam getExamForExec(Message msg) {
 
-		ExamForExec examForExec = new ExamForExec();
-		Exam exam = new Exam();
-
+		ExamForExec examForExec = null;
+		Exam exam = null;
 		try {
 			session = sessionFactory.openSession();
 			session.beginTransaction();
@@ -66,11 +65,10 @@ public class ExamExecController {
 			try {
 				examForExec = (ExamForExec) query.getSingleResult();
 			} catch (NoResultException nre) {
-				System.out.println("Exam code not found!");
 				exam = null;
 			}
 
-			if (exam == null) {
+			if (examForExec == null) {
 				exam = null;
 			}
 
