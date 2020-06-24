@@ -113,6 +113,7 @@ public class TimeExtensionController
 		} finally {
 			session.close();
 		}
+		System.out.println(timeExtensions.get(0).getExamID());
 		return timeExtensions;
 	}
 	

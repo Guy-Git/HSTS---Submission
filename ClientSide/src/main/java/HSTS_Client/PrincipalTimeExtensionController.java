@@ -269,10 +269,10 @@ public class PrincipalTimeExtensionController implements Initializable{
 			}
 			
 			else {
-				time_ext_text.setText("Active time extension requests");
-				time_ext_text.setFont(Font.font ("Century Gothic", 20));
-				time_ext_text.setFill(Color.WHITE);
-				time_ext_text.setTextAlignment(TextAlignment.CENTER);
+				//time_ext_text.setText("Active time extension requests");
+				//time_ext_text.setFont(Font.font ("Century Gothic", 20));
+				//time_ext_text.setFill(Color.WHITE);
+				//time_ext_text.setTextAlignment(TextAlignment.CENTER);
 				
 				Text warning = new Text("Please check requests you want to approve. \nUchecked requests are denied.\n");
 				warning.setFont(Font.font ("Century Gothic", 14));

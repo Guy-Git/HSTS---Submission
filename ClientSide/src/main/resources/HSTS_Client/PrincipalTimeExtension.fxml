@@ -86,7 +86,10 @@
                <children>
                   <VBox fx:id="time_ext_vbox" layoutX="106.0" layoutY="35.0" prefHeight="113.0" prefWidth="413.0">
                      <children>
-                        <Text fx:id="time_ext_text" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="413.4700164794922" />
+                        <Text fx:id="time_ext_text" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Active time extension requests" textAlignment="CENTER" wrappingWidth="413.4700164794922">
+                           <font>
+                              <Font name="Century Gothic" size="20.0" />
+                           </font></Text>
                         <HBox fx:id="time_ext_hbox" prefHeight="117.0" prefWidth="413.0" />
                      </children>
                   </VBox>
